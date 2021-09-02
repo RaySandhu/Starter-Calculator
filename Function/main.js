@@ -8,35 +8,37 @@ using the test function on the input string and then executing the correct funct
 //design goals TBD
 //FINISH LINE FOR BASE PROJECT
 //BONUS: store previous answers and allow user to call on previous results for future calculations
-let values = document.getElementById("totalInput");
 
 function ultimateCalculator() {
-var plusOperator = /\+/;
-var minusOperator = /\-/;
-var multiplicationOperator = /\*/;
-var divisionOperator = /\//;
-if (plusOperator.test(values)) {
+    let values = document.getElementById("totalInput").value;
+    var plusOperator = /\+/;
+    var minusOperator = /\-/;
+    var multiplicationOperator = /\*/;
+    var divisionOperator = /\//;
+    if (plusOperator.test(values)) {
         let arr = values.split("+");
         addition = () => parseInt(arr[0])+parseInt(arr[1]);
-        if (addition() === "NaN") {
-            alert `The answer is go fuck yourself.`;
-        } else alert(`The answer is ${addition()}`);
+        if (`${addition()}` === "NaN") {
+            alert `Looks like you have a hard time following instructions fam.`; //accounts for edge case error message where the operator is present but the input is invalid
+        } else document.getElementById("p1").innerHTML = plusOperator;
     } else if (minusOperator.test(values)) {
         let arr = values.split("-");
         subtraction = () => parseInt(arr[0])-parseInt(arr[1]);
-        alert(`The answer is ${subtraction()}`);
+        if (`${subtraction()}` === "NaN") {
+            alert `Looks like you have a hard time following instructions fam.`;
+        } else alert(`The answer is ${subtraction()}`);
     } else if (multiplicationOperator.test(values)) {
         let arr = values.split("*");
         multiplication = () => parseInt(arr[0])*parseInt(arr[1]);
-        alert(`The answer is ${multiplication()}`);
+        if (`${multiplication()}` === "NaN") {
+            alert `Looks like you have a hard time following instructions fam.`;
+        } else alert(`The answer is ${multiplication()}`);
     } else if (divisionOperator.test(values)) {
         let arr = values.split("/");
         division = () => parseInt(arr[0])/parseInt(arr[1]);
         remainder = () => parseInt(arr[0])%parseInt(arr[1]);
-        alert(`The answer is ${division()} with the remainder of ${remainder()}`);
-    } alert `Please enter no more than 2 integers and an operator.`
+        if (`${division()}` === "NaN") {
+            alert `Looks like you have a hard time following instructions fam.`;
+        }else alert(`The answer is ${division()} with the remainder of ${remainder()}`);
+    } else alert `Please enter no more than 2 integers and an operator.` //error message for when there is no operator
 }
-
-
-
-
