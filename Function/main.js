@@ -15,30 +15,35 @@ function ultimateCalculator() {
     var minusOperator = /\-/;
     var multiplicationOperator = /\*/;
     var divisionOperator = /\//;
+
     if (plusOperator.test(values)) {
         let arr = values.split("+");
         addition = () => parseInt(arr[0])+parseInt(arr[1]);
         if (`${addition()}` === "NaN") {
-            alert `Looks like you have a hard time following instructions fam.`; //accounts for edge case error message where the operator is present but the input is invalid
-        } else document.getElementById("p1").innerHTML = plusOperator;
-    } else if (minusOperator.test(values)) {
+            alert `Looks like you have a hard time following instructions, fam.`; //accounts for edge case error message where the operator is present but the input is invalid
+        } else document.getElementById("p1").innerHTML = addition();
+    } 
+    else if (minusOperator.test(values)) {
         let arr = values.split("-");
         subtraction = () => parseInt(arr[0])-parseInt(arr[1]);
         if (`${subtraction()}` === "NaN") {
-            alert `Looks like you have a hard time following instructions fam.`;
-        } else alert(`The answer is ${subtraction()}`);
-    } else if (multiplicationOperator.test(values)) {
+            alert `Looks like you have a hard time following instructions, fam.`;
+        } else document.getElementById("p1").innerHTML = subtraction();
+    } 
+    else if (multiplicationOperator.test(values)) {
         let arr = values.split("*");
         multiplication = () => parseInt(arr[0])*parseInt(arr[1]);
         if (`${multiplication()}` === "NaN") {
-            alert `Looks like you have a hard time following instructions fam.`;
-        } else alert(`The answer is ${multiplication()}`);
-    } else if (divisionOperator.test(values)) {
+            alert `Looks like you have a hard time following instructions, fam.`;
+        } else document.getElementById("p1").innerHTML = multiplication();
+    } 
+    else if (divisionOperator.test(values)) {
         let arr = values.split("/");
         division = () => parseInt(arr[0])/parseInt(arr[1]);
         remainder = () => parseInt(arr[0])%parseInt(arr[1]);
         if (`${division()}` === "NaN") {
-            alert `Looks like you have a hard time following instructions fam.`;
-        }else alert(`The answer is ${division()} with the remainder of ${remainder()}`);
-    } else alert `Please enter no more than 2 integers and an operator.` //error message for when there is no operator
+            alert `Looks like you have a hard time following instructions, fam.`;
+        }else document.getElementById("p1").innerHTML =`The answer is ${division()} with the remainder of ${remainder()}`;
+    } 
+    else alert `Please enter no more than 2 integers and an operator.` //error message for when there is no operator
 }

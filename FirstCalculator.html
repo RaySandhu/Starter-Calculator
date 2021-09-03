@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <link rel="stylesheet" href="Design/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<body class="grid">
+
 <div class ="header">
     <h1>The Ultimate Two-Integer Calculator</h1>
 </div>
-<body class="prompt">
-<form>
-    <label for="numericalInput">Enter numbers for calculation here:</label><br>
-    <input type="text" id="totalInput"> 
-    <button onclick="ultimateCalculator()"> Please do it</button><br><br>
-</form>
-<p id= "p1">Answer should appear here</p>
+<div class="question">
+    <form>
+        <label for="totalInput">Enter numbers for calculation here:</label><br>
+        <input type="text" id="totalInput"> 
+        <button type="button" onclick="ultimateCalculator()"> Please do it</button><br><br>
+    </form>
+</div>
+<div class="answer">
+    Answer will appear here:
+    <p id= "p1" class="answer"></p>
+</div>
+<div class="extra">
+    
+</div>
 </body>
 <script src = "Function/main.js"></script>
 </html>
