@@ -12,7 +12,7 @@ function scalableCalculator() {
 
     if (plusOperator.test(input)) {
         let listOfNumbers = input.split("+");
-        function addition() {
+        function addition2() {
             for(let i=0; i<listOfNumbers.length; i++) {
                 parseInt(listOfNumbers[i]);
             }
@@ -22,6 +22,7 @@ function scalableCalculator() {
                 } else return listOfNumbers[a]+listOfNumbers[a+1]
             }            
         }
+        addition = () => parseInt(listOfNumbers[0])+parseInt(listOfNumbers[1]);
         if (`${addition()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`; //accounts for edge case error message where the operator is present but the input is invalid
         } else document.getElementById("p1").innerHTML = addition();
