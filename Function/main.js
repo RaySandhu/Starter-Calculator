@@ -16,31 +16,30 @@ function ultimateCalculator() {
     var multiplicationOperator = /\*/;
     var divisionOperator = /\//;
 
-    if (plusOperator.test(input)) {
+    if (plusOperator.test(input)) { //saved copy of original 2integer addition
         let listOfNumbers = input.split("+");
         addition = () => parseInt(listOfNumbers[0]) + parseInt(listOfNumbers[1]) + parseInt(listOfNumbers[2]);
         if (`${addition()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`; //accounts for edge case error message where the operator is present but the input is invalid
         } else document.getElementById("p1").innerHTML = addition();
-    } 
-    else if (minusOperator.test(input)) {
-        let listOfNumbers = input.split("-");
-        subtraction = () => parseInt(listOfNumbers[0])-parseInt(listOfNumbers[1]);
+    } else if (minusOperator.test(input)) {
+        let listOfCharacters = input.split("-");
+        subtraction = () => parseInt(listOfCharacters[0])-parseInt(listOfCharacters[1]);
         if (`${subtraction()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`;
         } else document.getElementById("p1").innerHTML = subtraction();
     } 
     else if (multiplicationOperator.test(input)) {
-        let listOfNumbers = input.split("*");
-        multiplication = () => parseInt(listOfNumbers[0])*parseInt(listOfNumbers[1]);
+        let listOfCharacters = input.split("*");
+        multiplication = () => parseInt(listOfCharacters[0])*parseInt(listOfCharacters[1]);
         if (`${multiplication()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`;
         } else document.getElementById("p1").innerHTML = multiplication();
     } 
     else if (divisionOperator.test(input)) {
-        let listOfNumbers = input.split("/");
-        division = () => parseInt(listOfNumbers[0])/parseInt(listOfNumbers[1]);
-        remainder = () => parseInt(listOfNumbers[0])%parseInt(listOfNumbers[1]);
+        let listOfCharacters = input.split("/");
+        division = () => parseInt(listOfCharacters[0])/parseInt(listOfCharacters[1]);
+        remainder = () => parseInt(listOfCharacters[0])%parseInt(listOfCharacters[1]);
         if (`${division()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`;
         }else document.getElementById("p1").innerHTML =`The answer is ${division()} with the remainder of ${remainder()}`;
