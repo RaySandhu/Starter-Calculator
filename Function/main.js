@@ -18,7 +18,7 @@ function ultimateCalculator() {
 
     if (plusOperator.test(input)) { //saved copy of original 2integer addition
         let listOfNumbers = input.split("+");
-        addition = () => parseInt(listOfNumbers[0]) + parseInt(listOfNumbers[1]) + parseInt(listOfNumbers[2]);
+        addition = () => parseInt(listOfNumbers[0]) + parseInt(listOfNumbers[1]);
         if (`${addition()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`; //accounts for edge case error message where the operator is present but the input is invalid
         } else document.getElementById("p1").innerHTML = addition();
