@@ -11,10 +11,10 @@ using the test function on the input string and then executing the correct funct
 
 function ultimateCalculator() {
     let input = document.getElementById("totalInput").value;
-    var plusOperator = /\+/;
-    var minusOperator = /\-/;
-    var multiplicationOperator = /\*/;
-    var divisionOperator = /\//;
+    var plusOperator = /\+/g;
+    var minusOperator = /\-/g;
+    var multiplicationOperator = /\*/g;
+    var divisionOperator = /\//g;
 
     if (plusOperator.test(input)) { //saved copy of original 2integer addition
         let listOfNumbers = input.split("+");
