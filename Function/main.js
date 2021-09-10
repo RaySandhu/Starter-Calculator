@@ -46,3 +46,20 @@ function ultimateCalculator() {
     } 
     else alert `Please enter no more than 2 integers and an operator.` //error message for when there is no operator
 }
+
+function multipleAdditionSubtraction() {
+    let input = document.getElementById("totalInput").value;
+    var plusOperator = /\+/g;
+    var minusOperator = /\-/g;
+    let inputArray = input.split(" ");
+
+    while(inputArray.length>=1) {
+        for (var i=0; i>inputArray.length; i++) {
+            if (plusOperator.test(inputArray[i])) {
+                return parseInt(inputArray[i-1]) + parseInt(inputArray[i+1]);
+            } else if (minusOperator.test(inputArray[i])) {
+                return parseInt(inputArray[i+1])+parseInt(inputArray[i+1]);
+            }
+        }
+    } return inputArray;
+} document.getElementById("p1").innerHTML =`The answer is ${multipleAdditionSubtraction()}`
