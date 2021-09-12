@@ -11,11 +11,41 @@ using the test function on the input string and then executing the correct funct
 
 function ultimateCalculator() {
     let input = document.getElementById("totalInput").value;
-    var plusOperator = /\+/g;
-    var minusOperator = /\-/g;
-    var multiplicationOperator = /\*/g;
-    var divisionOperator = /\//g;
+    let inputArray = input.split(" ");
 
+    while (inputArray.length>1) {
+        for (var n=0; n<inputArray.length; n++) {
+            switch(inputArray[n]) {
+            case "*":
+            var subCalculation = parseInt(inputArray[n-1]) * parseInt(inputArray[n+1]);
+            inputArray.splice(n-1, 3, subCalculation);
+            var n=0;
+            break;
+            case "/":
+            var subCalculation = parseInt(inputArray[n-1]) / parseInt(inputArray[n+1]);
+            inputArray.splice(n-1, 3, subCalculation);
+            var n=0;
+            }
+        }
+        for (var i=0; i<inputArray.length; i++) {
+            switch(inputArray[i]) {
+            case "+":
+            var subCalculation = parseInt(inputArray[i-1]) + parseInt(inputArray[i+1]);
+            inputArray.splice(i-1, 3, subCalculation);
+            var i=0;
+            break;
+            case "-":
+            var subCalculation = parseInt(inputArray[i-1]) - parseInt(inputArray[i+1]);
+            inputArray.splice(i-1, 3, subCalculation);
+            var i=0;
+            }
+        }
+    }
+    document.getElementById("p1").innerHTML = inputArray;
+}
+
+
+   /* the original stepping-stone code which only completes 2-integer calculation
     if (plusOperator.test(input)) { //saved copy of original 2integer addition
         let listOfNumbers = input.split("+");
         addition = () => parseInt(listOfNumbers[0]) + parseInt(listOfNumbers[1]);
@@ -45,21 +75,4 @@ function ultimateCalculator() {
         }else document.getElementById("p1").innerHTML =`The answer is ${division()} with the remainder of ${remainder()}`;
     } 
     else alert `Please enter no more than 2 integers and an operator.` //error message for when there is no operator
-}
-
-function multipleAdditionSubtraction() {
-    let input = document.getElementById("totalInput").value;
-    var plusOperator = /\+/g;
-    var minusOperator = /\-/g;
-    let inputArray = input.split(" ");
-
-    while(inputArray.length>=1) {
-        for (var i=0; i>inputArray.length; i++) {
-            if (plusOperator.test(inputArray[i])) {
-                return parseInt(inputArray[i-1]) + parseInt(inputArray[i+1]);
-            } else if (minusOperator.test(inputArray[i])) {
-                return parseInt(inputArray[i+1])+parseInt(inputArray[i+1]);
-            }
-        }
-    } return inputArray;
-} document.getElementById("p1").innerHTML =`The answer is ${multipleAdditionSubtraction()}`
+} */
