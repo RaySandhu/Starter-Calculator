@@ -72,7 +72,7 @@ function ultimateCalculator() {
         remainder = () => parseInt(listOfCharacters[0])%parseInt(listOfCharacters[1]);
         if (`${division()}` === "NaN") {
             alert `Looks like you have a hard time following instructions, fam.`;
-        }else document.getElementById("p1").innerHTML =`The answer is ${division()} with the remainder of ${remainder()}`;
+        }else document.getElementById("p1").innerHTML =`The answer is ${Math.floor(division())} with the remainder of ${remainder()}`;
     } 
     else alert `Please enter no more than 2 integers and an operator.` //error message for when there is no operator
 } */
