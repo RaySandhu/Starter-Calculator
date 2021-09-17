@@ -8,9 +8,29 @@ using the test function on the input string and then executing the correct funct
 //design goals TBD
 //FINISH LINE FOR BASE PROJECT
 //BONUS: store previous answers and allow user to call on previous results for future calculations
+function whiteSpaceInserter(input) {
+    var output = input;
+    let plusOperator = /\+/g;
+    let minusOperator = /\-/g;
+    let multiplicationOperator = /\*/;
+    let divisionOperator = /\//g;
+    if (plusOperator.test(input)) {
+        var output = input.replace(plusOperator, " + ");
+      }
+    if (minusOperator.test(input)) {
+      var output = output.replace(minusOperator, " - ");
+    }
+    if (multiplicationOperator.test(input)) {
+      var output =output.replace(multiplicationOperator, " * ");
+    }
+    if (divisionOperator.test(input)) {
+      var output = output.replace
+    }
+    return output;
+  }
 
 function ultimateCalculator() {
-    let input = document.getElementById("totalInput").value;
+    let input = whiteSpaceInserter(document.getElementById("totalInput").value);
     let inputArray = input.split(" ");
 
     while (inputArray.length>1) {
