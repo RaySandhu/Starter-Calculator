@@ -3,8 +3,8 @@
 /* input will be received through the window prompt and a message with the calculated result will be output.*/
 /* figure out how to accept any of the four operators (one operator max) to calculate the answer by identifying an operator
 using the test function on the input string and then executing the correct function DONE*/
-//fix the input and output prompts to read the results on the page
-//accept unlimited number of integers
+//fix the input and output prompts to read the results on the page DONE
+//accept unlimited number of integers DONE
 //design goals TBD
 //FINISH LINE FOR BASE PROJECT
 //BONUS: store previous answers and allow user to call on previous results for future calculations
@@ -12,7 +12,7 @@ function whiteSpaceInserter(input) {
     var output = input;
     let plusOperator = /\+/g;
     let minusOperator = /\-/g;
-    let multiplicationOperator = /\*/;
+    let multiplicationOperator = /\*/g;
     let divisionOperator = /\//g;
     if (plusOperator.test(input)) {
         var output = input.replace(plusOperator, " + ");
@@ -24,7 +24,7 @@ function whiteSpaceInserter(input) {
       var output =output.replace(multiplicationOperator, " * ");
     }
     if (divisionOperator.test(input)) {
-      var output = output.replace
+      var output = output.replace(divisionOperator, " / ");
     }
     return output;
   }
@@ -32,32 +32,35 @@ function whiteSpaceInserter(input) {
 function ultimateCalculator() {
     let input = whiteSpaceInserter(document.getElementById("totalInput").value);
     let inputArray = input.split(" ");
-
     while (inputArray.length>1) {
         for (var n=0; n<inputArray.length; n++) {
             switch(inputArray[n]) {
-            case "*":
-            var subCalculation = parseInt(inputArray[n-1]) * parseInt(inputArray[n+1]);
-            inputArray.splice(n-1, 3, subCalculation);
-            var n=0;
-            break;
-            case "/":
-            var subCalculation = parseInt(inputArray[n-1]) / parseInt(inputArray[n+1]);
-            inputArray.splice(n-1, 3, subCalculation);
-            var n=0;
+                case "*":
+                var subCalculation = parseInt(inputArray[n-1]) * parseInt(inputArray[n+1]);
+                inputArray.splice(n-1, 3, subCalculation);
+                var n=0;
+                break;
+
+                case "/":
+                var subCalculation = parseInt(inputArray[n-1]) / parseInt(inputArray[n+1]);
+                inputArray.splice(n-1, 3, subCalculation);
+                var n=0;
+                break;
             }
         }
         for (var i=0; i<inputArray.length; i++) {
             switch(inputArray[i]) {
-            case "+":
-            var subCalculation = parseInt(inputArray[i-1]) + parseInt(inputArray[i+1]);
-            inputArray.splice(i-1, 3, subCalculation);
-            var i=0;
-            break;
-            case "-":
-            var subCalculation = parseInt(inputArray[i-1]) - parseInt(inputArray[i+1]);
-            inputArray.splice(i-1, 3, subCalculation);
-            var i=0;
+
+                case "+":
+                    var subCalculation = parseInt(inputArray[i-1]) + parseInt(inputArray[i+1]);
+                    inputArray.splice(i-1, 3, subCalculation);
+                    var i=0;
+                    break;
+
+                case "-":
+                    var subCalculation = parseInt(inputArray[i-1]) - parseInt(inputArray[i+1]);
+                    inputArray.splice(i-1, 3, subCalculation);
+                    var i=0;
             }
         }
     }
